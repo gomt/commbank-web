@@ -38,7 +38,11 @@ export function TransactionItem(props: Props) {
 
         <h6 className="datetime">{`${new Date(
           props.transaction.dateTime,
-        ).toLocaleDateString()}`}</h6>
+        ).toLocaleDateString('en-AU', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+        })}`}</h6>
 
         <h6 className="price">{`${
           props.transaction.transactionType === 'Credit'
