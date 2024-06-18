@@ -95,10 +95,10 @@ export function GoalManager(props: Props) {
     setEmojiPickerIsOpen(true)
   }
 
-  const pickEmojiOnClick = (emoji: BaseEmoji, event: MouseEvent) => {
+  const pickEmojiOnClick = (emoji: BaseEmoji, event: React.MouseEvent) => {
     event.stopPropagation()
 
-    props.goal.icon = (emoji.native)
+    setIcon(emoji.native)
     setEmojiPickerIsOpen(false)
 
     const updatedGoal: Goal = {
@@ -110,8 +110,7 @@ export function GoalManager(props: Props) {
     }
 
     dispatch(updateGoalRedux(updatedGoal))
-    
-    // TODO(TASK-3) Update database
+    updateGoalApi(props.goal.id, updatedGoal)
   }
 
   return (
@@ -145,13 +144,7 @@ export function GoalManager(props: Props) {
           <StringValue>{new Date(props.goal.created).toLocaleDateString()}</StringValue>
         </Value>
       </Group>
-      <EmojiPickerContainer
-        isOpen={emojiPickerIsOpen}
-        hasIcon={hasIcon()}
-        onClick={(event) => event.stopPropagation()}
-      >
-        <EmojiPicker onClick={pickEmojiOnClick.call} />
-    </EmojiPickerContainer>
+
     <AddIconButtonContainer shouldShow={hasIcon()}>
       <TransparentButton onClick={addIconOnClick}>
         {/* <FontAwesomeIcon icon={props.goal.icon} size="2x" /> */}
@@ -161,6 +154,13 @@ export function GoalManager(props: Props) {
     <GoalIconContainer shouldShow={hasIcon()}>
       <GoalIcon icon={goal.icon} onClick={addIconOnClick} />
     </GoalIconContainer>
+    <EmojiPickerContainer
+        isOpen={emojiPickerIsOpen}
+        hasIcon={hasIcon()}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <EmojiPicker onClick={pickEmojiOnClick} />
+    </EmojiPickerContainer>
     </GoalManagerContainer>
   )
 }
