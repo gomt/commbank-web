@@ -36,6 +36,7 @@ export function TransactionItem(props: Props) {
 
         {tags ? tags.map((tag) => <Chip key={tag.id} label={tag.name} />) : null}
 
+        {/* Change asLocaleDateString to have the date and time fit the picture examples */}
         <h6 className="datetime">{`${new Date(
           props.transaction.dateTime,
         ).toLocaleDateString('en-AU', {
