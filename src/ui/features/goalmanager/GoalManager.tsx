@@ -16,6 +16,7 @@ import 'emoji-mart/css/emoji-mart.css'
 import EmojiPicker from '../../../EmojiPicker'
 import { TransparentButton } from '../../components/TransparentButton'
 import GoalIcon from './GoalIcon'
+import { faSmile } from '@fortawesome/free-solid-svg-icons'
 
 type Props = { goal: Goal }
 export function GoalManager(props: Props) {
@@ -148,7 +149,7 @@ export function GoalManager(props: Props) {
 
     <AddIconButtonContainer shouldShow={hasIcon()}>
       <TransparentButton onClick={addIconOnClick}>
-        {/* <FontAwesomeIcon icon={props.goal.icon} size="2x" /> */}
+        <FontAwesomeIcon icon={faSmile} size="2x" />
         <StringValue>Add icon</StringValue>
       </TransparentButton>
     </AddIconButtonContainer>
