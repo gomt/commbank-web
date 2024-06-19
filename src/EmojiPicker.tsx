@@ -2,6 +2,7 @@ import { BaseEmoji, Picker } from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css'
 import { useAppSelector } from './store/hooks'
 import { selectMode } from './store/themeSlice'
+// Created EmojiPicer.tsx file to make the process of implementing EmojiPicker more convenient
 
 type Props = { onClick: (emoji: BaseEmoji, event: React.MouseEvent) => void }
 

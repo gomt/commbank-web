@@ -27,6 +27,7 @@ export function GoalManager(props: Props) {
   const [targetDate, setTargetDate] = useState<Date | null>(null)
   const [targetAmount, setTargetAmount] = useState<number | null>(null)
 
+  // Completed task 2 and 3 below
   useEffect(() => {
     setName(props.goal.name)
     setTargetDate(props.goal.targetDate)

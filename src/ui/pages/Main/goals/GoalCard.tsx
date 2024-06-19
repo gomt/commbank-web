@@ -24,6 +24,7 @@ export default function GoalCard(props: Props) {
     dispatch(setIsOpenRedux(true))
   }
 
+  // Change asLocaleDateString to have the date and time fit the picture examples
   const asLocaleDateString = (date: Date) => new Date(date).toLocaleDateString('en-AU', {
   day: '2-digit',
   month: 'short',
